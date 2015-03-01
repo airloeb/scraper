@@ -1,0 +1,13 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    ViewBag.CurrentTab = "Home";
+}
+
+<div class="col-md-5 col-md-offset-2" style="margin-top: 75px">
+    <form method="POST" action="Home/Scrape" class="">
+        <label class="form-group" for="url">Enter URL</label>
+        <input type="text" name="url" class="form-group form-control"/>
+    </form>
+</div>

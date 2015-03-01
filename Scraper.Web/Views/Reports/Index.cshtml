@@ -1,0 +1,29 @@
+﻿@using Scraper.Api
+@model Scraper.Web.Models.ReportsModel
+
+@{
+    ViewBag.Title = "title";
+    ViewBag.CurrentTab = "Reports";
+}
+
+<table class="table table-bordered table-hover table-striped table-condensed" style="margin-top: 75px">
+    <tr>
+        <th class="text-center">Image</th>
+        <th class="text-center">Title</th>
+        <th class="text-center">Price</th>
+        <th class="text-center">Delete</th>
+    </tr>
+    @foreach (Item i in Model.Items)
+    {
+        <tr>
+            <td class="text-center" style="vertical-align: middle"><img src="@i.Image" style="height: 55px"/></td>
+            <td class="text-center" style="vertical-align: middle"><a href="@i.Url">@i.Title</a></td>
+            <td class="text-center" style="vertical-align: middle">$@i.Price</td>
+            <td class="text-center" style="vertical-align: middle"><form  method="POST" action="/Home/Delete"><input type="hidden" name="id" value="@i.Id"/><button class="btn btn-danger">Delete</button></form></td>
+        </tr>
+    }
+</table>
+
+@*@section scripts{
+    <script type="text/javascript" src="/Scripts/Reports/IndexScripts.js"></script>
+}*@
