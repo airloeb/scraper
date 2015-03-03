@@ -21,6 +21,10 @@ namespace Scraper.Web.Controllers
         [HttpPost]
         public ActionResult Scrape(string url)
         {
+            if (!url.Contains("bloomingdales.com"))
+            {
+                return Redirect("/Home/Index");
+            }
             Item product = Searcher.Scrape(url);
             Repo repo = new Repo();
             bool flag = repo.CheckPrice(product);
