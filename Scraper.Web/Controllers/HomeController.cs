@@ -21,7 +21,7 @@ namespace Scraper.Web.Controllers
         [HttpPost]
         public ActionResult Scrape(string url)
         {
-            if (!url.Contains("bloomingdales.com"))
+            if (!url.Contains("bloomingdales.com/shop/product"))
             {
                 return Redirect("/Home/Index");
             }
